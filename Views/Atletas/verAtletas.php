@@ -8,6 +8,7 @@
                 <th>Apellido</th>
                 <th>Carrera</th>
                 <th>Tipo</th>
+                <th>Disciplina</th>
             </tr>
         </thead>
         <tbody>

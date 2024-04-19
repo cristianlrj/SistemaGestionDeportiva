@@ -12,9 +12,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Atletas/registroAtleta">
                 <svg class="bi"><use xlink:href="#cart"/></svg>
-                Products
+                Registro de Atleta
               </a>
             </li>
             <li class="nav-item">

@@ -5,7 +5,7 @@ const Atletas = new DataTable("#Atletas", {
         url: base_url + "/Assets/js/plugins/datatables/es-ES.json",
     },
     ajax: {
-        url: ' ' + base_url + '/Api/getPersons',
+        url: base_url + '/Api/getPersons',
         dataSrc: "",
     },
     columns: [
@@ -13,11 +13,36 @@ const Atletas = new DataTable("#Atletas", {
        {data: "nombre"},
        {data: "apellido"},
        {data: "carrera"},
-       {data: "tipo"}
+       {data: "tipo"},
+       {data: "disciplina"}
     ],
+    layout: {
+        topStart: {
+            buttons: [
+                {
+                  extend: "copyHtml5",
+                  text: "<i class='far fa-copy'></i> Copiar",
+                  titleAttr: "Copiar",
+                  className: "btn btn-secondary",
+                },
+                {
+                  extend: "excelHtml5",
+                  text: "<i class='fas fa-file-excel'></i> Excel",
+                  titleAttr: "Esportar a Excel",
+                  className: "btn btn-success",
+                },
+                {
+                  extend: "csvHtml5",
+                  text: "<i class='fas fa-file-csv'></i> CSV",
+                  titleAttr: "Esportar a CSV",
+                  className: "btn btn-info",
+                },
+              ],
+        }
+    },
     scrollX: true,
     responsive: true,
-    order: [[0, "desc"]],
+    order: [[0, "asc"]],
 })
 
 });
