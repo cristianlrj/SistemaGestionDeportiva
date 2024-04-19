@@ -1,0 +1,6 @@
+[
+    {"cedula": "V30143282", "nombre": "Cristian", "apellido" : "Rojas", "carrera": "Informatica", "trayecto": "2", "seccion": "2", "tipo" : "Estudiante", "fecha_nac": "2003-09-29"},
+    {"cedula": "V27335452", "nombre": "Laura", "apellido" : "Quintero", "carrera": "Informatica", "trayecto": "2", "seccion": "2", "tipo" : "Estudiante", "fecha_nac": "2000-07-29"},
+    {"cedula": "V29612312", "nombre": "Miguelangel", "apellido" : "Montaño", "carrera": "Informatica", "trayecto": "2", "seccion": "2", "tipo" : "Estudiante", "fecha_nac": "2000-11-10"},
+    {"cedula": "V27935005", "nombre": "Oscar", "apellido" : "Anderson", "carrera": "Informatica", "trayecto": "2", "seccion": "2", "tipo" : "Obrero", "fecha_nac": "2000-11-03"}
+]

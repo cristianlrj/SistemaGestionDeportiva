@@ -31,11 +31,6 @@
         $view_header = "Views/Template/nav_admin.php";
         require_once ($view_header);
     }
-    function headerCliente($data="")
-    {
-        $view_header = "Views/Template/header_cliente.php";
-        require_once ($view_header);
-    }
     function footerAdmin($data="")
     {
         $view_footer = "Views/Template/footer_admin.php";
@@ -46,17 +41,14 @@
         $view_footer = "Views/Template/footer_home.php";
         require_once ($view_footer);        
     }
-    function headerTienda($data="")
-    {
-        $view_header = "Views/Template/header_tienda.php";
-        require_once ($view_header);
-    }
-    function footerTienda($data="")
-    {
-        $view_footer = "Views/Template/footer_tienda.php";
-        require_once ($view_footer);        
-    }
     
+    function functions($class, $name){
+        if(get_class($class) == "Home") $functions = $name."_functions.js";
+        
+        else $functions = get_class($class)."/".$name."_functions.js";
+
+        return $functions;
+    }
 	//Muestra información formateada
 	function dep($data)
     {
@@ -69,11 +61,6 @@
     {
         $view_modal = "Views/Template/Modals/{$nameModal}.php";
         require_once $view_modal;        
-    }
-    function getBloque(string $nameBloque, $data)
-    {
-        $view_modal = "Views/Template/bloques/{$nameBloque}.php";
-        require $view_modal;        
     }
    
     function getFile(string $url, $data)
