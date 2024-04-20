@@ -82,4 +82,6 @@
           </div>
 </form>
 
+<button class="btn btn-info">HOLA</button>
+
 <?php footerAdmin($data) ?>
