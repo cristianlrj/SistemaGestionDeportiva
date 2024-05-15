@@ -16,4 +16,6 @@
         </tbody>
     </table>
 
+    <button class="btn btn-primary">Buscar</button>
+
 <?php footerAdmin($data) ?>
