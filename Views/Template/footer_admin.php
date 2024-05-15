@@ -4,7 +4,7 @@
 
     <script src="<?= media() ?>/js/plugins/bootstrap.bundle.min.js"></script>
     <script src="<?= media() ?>/js/plugins/all.min.js"></script>
-    <script src="<?= media() ?>/js/plugins/color-modes.js"></script>
+    <!-- <script src="<?= media() ?>/js/plugins/color-modes.js"></script> -->
 	<script src="<?= media() ?>/js/plugins/datatables/datatables.min.js"></script>
 	
 	<script>

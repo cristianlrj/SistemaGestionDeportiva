@@ -21,11 +21,6 @@
         $view_header = "Views/Template/header_home.php";
         require_once ($view_header);
     }
-    function templateAdmin($data="")
-    {
-        $view_header = "Views/Template/template_admin.php";
-        require_once ($view_header);
-    }
     function navAdmin($data="")
     {
         $view_header = "Views/Template/nav_admin.php";
@@ -43,15 +38,15 @@
     }
     
     function functions($class, $name){
+
         if(get_class($class) == "Home") $functions = $name."_functions.js";
-        
         else $functions = get_class($class)."/".$name."_functions.js";
 
         return $functions;
     }
-	//Muestra información formateada
 	function dep($data)
     {
+        //Muestra información formateada
         $format  = print_r('<pre>');
         $format .= print_r($data);
         $format .= print_r('</pre>');
@@ -70,7 +65,6 @@
         $file = ob_get_clean();
         return $file;        
     }
-    //Envio de correos
 
     // function getPermisos(int $idmodulo){
     //     require_once ("Models/PermisosModel.php");
@@ -113,7 +107,7 @@
                         if(imagejpeg($original, $destino, 100)){
                           $return = true;  
                         }
-                        //echo "imagen subida con exito";
+
                         imagedestroy($original);
         return $return;
     }
@@ -122,11 +116,10 @@
         unlink('Assets/images/uploads/'.$name);
     }
 
-    //Elimina exceso de espacios entre palabras
     function strClean($strCadena){
         $string = preg_replace(['/\s+/','/^\s|\s$/'],[' ',''], $strCadena);
-        $string = trim($string); //Elimina espacios en blanco al inicio y al final
-        $string = stripslashes($string); // Elimina las \ invertidas
+        $string = trim($string);
+        $string = stripslashes($string);
         $string = str_ireplace("<script>","",$string);
         $string = str_ireplace("</script>","",$string);
         $string = str_ireplace("<script src>","",$string);
