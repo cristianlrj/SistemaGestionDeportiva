@@ -1,6 +1,6 @@
 <?php
 
-class Atletas extends Controllers{
+class Atleta extends Controllers{
 
     public function registroAtleta(){
 

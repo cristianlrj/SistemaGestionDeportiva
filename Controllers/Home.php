@@ -6,7 +6,7 @@ class Home extends Controllers{
 
         $data['page_tag'] = APP_NAME;
 		$data['page_title'] = APP_NAME;
-		$data['page_name'] = "Home";
+		$data['page_name'] = "Inicio";
         $data['page_functions'] = functions($this, "home");
 
 		$this->views->getView($this,"home",$data);
