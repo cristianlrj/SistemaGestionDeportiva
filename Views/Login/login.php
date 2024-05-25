@@ -1,75 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="<?= media() ?>/css/plugins/css@3.css">
+        <link rel="stylesheet" href="<?= media() ?>/css/plugins/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= media() ?>/css/dashboard.css">
+		<title><?= $data['page_title'] ?></title>
+    </head>
+    <body>
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="AdminKit">
-	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+<header class="navbar sticky-top bg-primary flex-md-nowrap p-0 shadow">
+  <span class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><?= $data['page_title'] ?></span>
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+</header>
+<main class="col-md-6 m-sm-auto col-lg-7">
+<div class="d-flex justify-content-center align-items-center mt-4 shadow p-4">
+	<div class="col-5">
+		<img src="<?= media() ?>/images/logo.gif" alt="UPTOS" width="90%">
+	</div>
+<form class="col-7">
+    <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+    <h1 class="h3 mb-3 fw-normal">Por favor, inicie sesión</h1>
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-in.html" />
+    <div class="form-floating mb-2">
+      <input type="email" class="form-control" id="floatingInput" placeholder="email@ejemplo.com">
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating mb-4">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+      <label for="floatingPassword">Contraseña</label>
+    </div>
 
-	<title>Sign In | AdminKit Demo</title>
+    <button class="btn btn-primary w-100 py-2" type="submit">Iniciar sesión</button>
+  </form>
+</div>
+</main>
+  </div>
+</div>
 
-	<link href="<?= base_url(); ?>/Assets/css/app.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
+    <script src="<?= media() ?>/js/plugins/bootstrap.bundle.min.js"></script>
+    <script src="<?= media() ?>/js/plugins/all.min.js"></script>
+	
+	<script>
+		const base_url = "<?= base_url() ?>";
+	</script>
 
-<body>
-	<main class="d-flex w-100">
-		<div class="container d-flex flex-column">
-			<div class="row vh-100">
-				<div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto d-table h-100">
-					<div class="d-table-cell align-middle">
-
-						<div class="text-center mt-4">
-							<h1 class="h2">Welcome back!</h1>
-							<p class="lead">
-								Sign in to your account to continue
-							</p>
-						</div>
-
-						<div class="card">
-							<div class="card-body">
-								<div class="m-sm-3">
-									<form>
-										<div class="mb-3">
-											<label class="form-label">Email</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
-										</div>
-										<div class="mb-3">
-											<label class="form-label">Password</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
-										</div>
-										<div>
-											<div class="form-check align-items-center">
-												<input id="customControlInline" type="checkbox" class="form-check-input" value="remember-me" name="remember-me" checked>
-												<label class="form-check-label text-small" for="customControlInline">Remember me</label>
-											</div>
-										</div>
-										<div class="d-grid gap-2 mt-3">
-											<a href="index.html" class="btn btn-lg btn-primary">Sign in</a>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<div class="text-center mb-3">
-							Don't have an account? <a href="pages-sign-up.html">Sign up</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
-
-	<script src="<?= base_url(); ?>/Assets/js/app.js"></script>
-
+	<script src="<?= media() ?>/js/<?= $data['page_functions'] ?>"></script>
 </body>
-
 </html>
