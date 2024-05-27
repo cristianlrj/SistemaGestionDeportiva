@@ -20,17 +20,17 @@
 	<div class="col-5">
 		<img src="<?= media() ?>/images/logo.gif" alt="UPTOS" width="90%">
 	</div>
-<form class="col-7">
+<form id="formLogin" class="col-7">
     <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
     <h1 class="h3 mb-3 fw-normal">Por favor, inicie sesión</h1>
 
     <div class="form-floating mb-2">
-      <input type="email" class="form-control" id="floatingInput" placeholder="email@ejemplo.com">
-      <label for="floatingInput">Email</label>
+      <input type="email" class="form-control" id="email" name="email" required placeholder="email@ejemplo.com">
+      <label for="email">Email</label>
     </div>
     <div class="form-floating mb-4">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-      <label for="floatingPassword">Contraseña</label>
+      <input type="password" class="form-control" id="clave" name="clave" required placeholder="Clave">
+      <label for="clave">Contraseña</label>
     </div>
 
     <button class="btn btn-primary w-100 py-2" type="submit">Iniciar sesión</button>
@@ -42,6 +42,7 @@
 
     <script src="<?= media() ?>/js/plugins/bootstrap.bundle.min.js"></script>
     <script src="<?= media() ?>/js/plugins/all.min.js"></script>
+    <script src="<?= media() ?>/js/plugins/sweetalert2.js"></script>
 	
 	<script>
 		const base_url = "<?= base_url() ?>";
