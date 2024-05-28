@@ -130,6 +130,7 @@
         $string = str_ireplace("SELECT COUNT(*) FROM","",$string);
         $string = str_ireplace("DROP TABLE","",$string);
         $string = str_ireplace("OR '1'='1","",$string);
+        $string = str_ireplace("OR","",$string);
         $string = str_ireplace('OR "1"="1"',"",$string);
         $string = str_ireplace('OR ´1´=´1´',"",$string);
         $string = str_ireplace("is NULL; --","",$string);
@@ -145,7 +146,9 @@
         $string = str_ireplace("^","",$string);
         $string = str_ireplace("[","",$string);
         $string = str_ireplace("]","",$string);
-        $string = str_ireplace("==","",$string);
+        $string = str_ireplace("=","",$string);
+        $string = str_ireplace("'","",$string);
+        $string = str_ireplace(";","",$string);
         return $string;
     }
 
