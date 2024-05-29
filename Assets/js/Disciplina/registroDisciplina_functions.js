@@ -17,6 +17,12 @@ formDisciplina.addEventListener("submit", (e) => {
                 title: res.title,
                 text: res.msg,
                 showConfirmButton: true,
+                confirmButtonText: "Continuar",
+                allowOutsideClick: false,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = base_url + "/Disciplina/verDisciplinas";
+                }
             });
         }else{
             Swal.fire({

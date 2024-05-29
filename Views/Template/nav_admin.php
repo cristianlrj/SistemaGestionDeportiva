@@ -44,6 +44,10 @@
 			  	<i class="fa-solid fa-list"></i>
                 Ver Atletas
               </a>
+              <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Disciplina/verDisciplinas">
+			  	<i class="fa-solid fa-list"></i>
+                Ver Disciplinas
+              </a>
             </li>
     </ul>
          

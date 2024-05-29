@@ -26,4 +26,42 @@ class Disciplina extends Controllers{
         
     }
 
+    public function setDisciplina(){
+      if($_POST){
+        $nombre = strClean($_POST['nombre']);
+        $descripcion = strClean($_POST['descripcion']);
+
+        
+        if(empty($nombre) || empty($descripcion)){
+          $arrResponse = array('status' => false, "title" => "Error!", "msg" => "Revise los campos!");
+          echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+          die();
+      }
+
+      $insert = $this->model->insertDisciplina($nombre, $descripcion);
+
+      if($insert > 0){
+          $arrResponse = array("status" => true, "title" => "Exito!", "msg" => "Disciplina creada correctamente!");
+      }else{
+          $arrResponse = array("status" => false, "title" => "Disciplina ya creada!", "msg" => "Revise sus datos!");
+      }
+        
+      echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+      
+    }
+      die();
+    }
+
+    public function getDisciplinas(){
+
+      $arrData = $this->model->selectDisciplinas();
+
+      for ($i=0; $i < count($arrData); $i++) { 
+        $arrData[$i]['options'] = "elimina, editar, ver";
+      }
+
+      echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+
+    }
+
 }
