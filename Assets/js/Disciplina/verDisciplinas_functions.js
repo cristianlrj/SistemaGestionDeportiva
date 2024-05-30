@@ -9,7 +9,7 @@ const Disciplinas = new DataTable("#Disciplinas", {
         dataSrc: "",
     },
     columns: [
-       {data: "iddisciplina"},
+       {data: "id_disciplina"},
        {data: "nombre"},
        {data: "descripcion"},
        {data: "options"},

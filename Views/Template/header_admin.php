@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="<?= media() ?>/css/plugins/css@3.css">
         <link rel="stylesheet" href="<?= media() ?>/css/plugins/bootstrap.min.css">
         <link rel="stylesheet" href="<?= media() ?>/css/dashboard.css">
+        <link rel="stylesheet" href="<?= media() ?>/css/styles.css">
 		<link rel="stylesheet" href="<?= media() ?>/css/plugins/datatables.min.css">
 		<title><?= $data['page_title'] ?></title>
     </head>
