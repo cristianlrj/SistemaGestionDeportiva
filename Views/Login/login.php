@@ -12,10 +12,11 @@
     <body>
 
 <header class="navbar sticky-top bg-primary flex-md-nowrap p-0 shadow">
-  <span class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><?= $data['page_title'] ?></span>
+  <span class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white" href="#"><?= $data['page_title'] ?></span>
 
 </header>
 <main class="col-md-6 m-sm-auto col-lg-7">
+  <h1 class="text-primary mt-5 text-center">SIGEDE</h1>
 <div class="d-flex justify-content-center align-items-center mt-4 shadow p-4">
 	<div class="col-5">
 		<img src="<?= media() ?>/images/logo.gif" alt="UPTOS" width="90%">

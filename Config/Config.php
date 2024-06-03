@@ -13,4 +13,4 @@
 	const DB_PASSWORD = "";
 	const DB_CHARSET = "utf8";
 
-	const APP_NAME = "Gestion Deportiva";
+	const APP_NAME = "SIGEDE";
