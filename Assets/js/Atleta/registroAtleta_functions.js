@@ -1,8 +1,44 @@
 let formAtleta = document.getElementById("formAtleta");
 
-document.addEventListener("DOMContentLoaded", () => {
-    // alert("pudrete sistema educativo")
-})
+let cedulaInput = document.getElementById("cedula");
+let nombreCompletoInput = document.getElementById("nombreCompleto");
+let carreraInput = document.getElementById("carrera");
+let trayectoInput = document.getElementById("trayecto");
+let seccionInput = document.getElementById("seccion");
+
+cedulaInput.addEventListener("keyup", (e) => {
+    let cedula = e.target.value;
+    if (cedula.trim() !== "" && cedula.length > 6) {
+        fetch(base_url + "/Api/getPersona/" + cedula)
+            .then(res => res.json())
+            .then(data => {
+                if (data.status) {
+                    let persona = data.data;
+                    // Actualizar los campos del formulario con los datos obtenidos
+                    nombreCompletoInput.value = persona.fullname;
+                    carreraInput.value = persona.carrera;
+                    trayectoInput.value = persona.trayecto;
+                    seccionInput.value = persona.seccion;
+                } else {
+                    // Limpiar los campos si no se encontraron datos para la cédula ingresada
+                    nombreCompletoInput.value = "";
+                    carreraInput.value = "";
+                    trayectoInput.value = "";
+                    seccionInput.value = "";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Manejar errores en la solicitud fetch
+            });
+    } else {
+        // Limpiar los campos si la cédula está vacía
+        nombreCompletoInput.value = "";
+        carreraInput.value = "";
+        trayectoInput.value = "";
+        seccionInput.value = "";
+    }
+});
 
 formAtleta.addEventListener("submit", (e) => {
 

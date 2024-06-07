@@ -1,5 +1,6 @@
 let formDisciplina = document.getElementById("formDisciplina");
 
+
 formDisciplina.addEventListener("submit", (e) => {
 
     e.preventDefault();

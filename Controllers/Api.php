@@ -10,7 +10,7 @@ class Api extends Controllers{
 			die();
 		}
     }
-    public function getPerson($cedula){
+    public function getPersona($cedula){
 
         $str = file_get_contents('data.json');
 
@@ -18,12 +18,12 @@ class Api extends Controllers{
 
         foreach ( $arr as $obj ){
             if ( $obj->cedula == $cedula) {
-                echo json_encode($obj, JSON_UNESCAPED_UNICODE);
+                echo json_encode(array("status" => true, "data" => $obj), JSON_UNESCAPED_UNICODE);
             }
         }
     }
 
-    public function getPersons(){
+    public function getPersonas(){
 
         $str = file_get_contents('data.json');
 

@@ -1,9 +1,6 @@
 Header set Access-Control-Allow-Origin "*"
 Options All -Indexes
 RewriteEngine on
-RewriteRule ^.*(site[a-z]+map\.xml)$  sitemaps/$1 [L]
-RewriteRule ^.*(sitemap\.xml)$  sitemaps/$1 [L]
-
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

@@ -14,16 +14,11 @@
             
             </div>
         </div>
-        <div class="col-md-3">
-            <label for="nombres" class="form-label">Nombres</label>
-            <input type="text" class="form-control" id="nombres" required="">
-            
+        <div class="col-md-6">
+            <label for="nombreCompleto" class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" id="nombreCompleto" disabled>
         </div>
-        <div class="col-md-3">
-            <label for="apellidos" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" id="apellidos" required="">
-            
-        </div>
+
         <div class="col-md-3">
             <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
             <input type="date" class="form-control" id="fechaNacimiento" required="">
@@ -31,17 +26,17 @@
         </div>
         <div class="col-md-3">
             <label for="carrera" class="form-label">Carrera</label>
-            <input type="text" class="form-control" id="carrera" required="">
+            <input type="text" class="form-control" id="carrera" disabled>
             
         </div>
         <div class="col-md-3">
             <label for="trayecto" class="form-label">Trayecto</label>
-            <input type="text" class="form-control" id="trayecto" required="">
+            <input type="text" class="form-control" id="trayecto" disabled>
             
         </div>
         <div class="col-md-3">
             <label for="seccion" class="form-label">Sección</label>
-            <input type="text" class="form-control" id="seccion" required="">
+            <input type="text" class="form-control" id="seccion" disabled>
             
         </div>
         <div class="col-md-3">
