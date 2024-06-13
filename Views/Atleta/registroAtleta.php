@@ -21,7 +21,7 @@
 
         <div class="col-md-3">
             <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" id="fechaNacimiento" required="">
+            <input type="date" class="form-control" id="fechaNacimiento" disabled>
             
         </div>
         <div class="col-md-3">

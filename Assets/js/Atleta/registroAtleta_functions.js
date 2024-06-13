@@ -1,12 +1,12 @@
 let formAtleta = document.getElementById("formAtleta");
 
-let cedulaInput = document.getElementById("cedula");
-let nombreCompletoInput = document.getElementById("nombreCompleto");
-let carreraInput = document.getElementById("carrera");
-let trayectoInput = document.getElementById("trayecto");
-let seccionInput = document.getElementById("seccion");
+let cedula = document.getElementById("cedula");
+let nombreCompleto = document.getElementById("nombreCompleto");
+let carrera = document.getElementById("carrera");
+let trayecto = document.getElementById("trayecto");
+let seccion = document.getElementById("seccion");
 
-cedulaInput.addEventListener("keyup", (e) => {
+cedula.addEventListener("keyup", (e) => {
     let cedula = e.target.value;
     if (cedula.trim() !== "" && cedula.length > 6) {
         fetch(base_url + "/Api/getPersona/" + cedula)
@@ -15,16 +15,16 @@ cedulaInput.addEventListener("keyup", (e) => {
                 if (data.status) {
                     let persona = data.data;
                     // Actualizar los campos del formulario con los datos obtenidos
-                    nombreCompletoInput.value = persona.fullname;
-                    carreraInput.value = persona.carrera;
-                    trayectoInput.value = persona.trayecto;
-                    seccionInput.value = persona.seccion;
+                    nombreCompleto.value = persona.fullname;
+                    carrera.value = persona.carrera;
+                    trayecto.value = persona.trayecto;
+                    seccion.value = persona.seccion;
                 } else {
                     // Limpiar los campos si no se encontraron datos para la cédula ingresada
-                    nombreCompletoInput.value = "";
-                    carreraInput.value = "";
-                    trayectoInput.value = "";
-                    seccionInput.value = "";
+                    nombreCompleto.value = "";
+                    carrera.value = "";
+                    trayecto.value = "";
+                    seccion.value = "";
                 }
             })
             .catch(error => {
@@ -33,10 +33,10 @@ cedulaInput.addEventListener("keyup", (e) => {
             });
     } else {
         // Limpiar los campos si la cédula está vacía
-        nombreCompletoInput.value = "";
-        carreraInput.value = "";
-        trayectoInput.value = "";
-        seccionInput.value = "";
+        nombreCompleto.value = "";
+        carrera.value = "";
+        trayecto.value = "";
+        seccion.value = "";
     }
 });
 
