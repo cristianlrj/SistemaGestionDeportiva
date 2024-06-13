@@ -1,5 +1,10 @@
 let formDisciplina = document.getElementById("formDisciplina");
+let btnFinalizar = document.getElementById("finalizar");
+let id_disciplina = document.getElementById("id_disciplina");
 
+if(id_disciplina.value > 0){
+    btnFinalizar.textContent = "Actualizar";
+}
 
 formDisciplina.addEventListener("submit", (e) => {
 

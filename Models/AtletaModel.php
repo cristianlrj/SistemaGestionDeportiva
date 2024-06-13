@@ -20,9 +20,14 @@
             $sql = "INSERT INTO atleta(cedula,talla_zapato,talla_franela,talla_pantalon,estatura,peso,id_disciplina) VALUES (?,?,?,?,?,?,?)";
             $arrData = array($cedula, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $disciplina);
 
-            $insert = $this->insert($sql, $arrData);
+            $insert_id = $this->insert($sql, $arrData);
 
-            $return = $insert;
+            $sqlFicha = "INSERT INTO ficha_medica(id_atleta,alergias,patologias,tipo_sangre) VALUES (?,?,?,?)";
+            $arrDataFicha = array($insert_id, $alergias, $patologias, $tipo_sangre);
+
+            $this->insert($sqlFicha, $arrDataFicha);
+
+            $return = $insert_id;
             }
             return $return;
         }

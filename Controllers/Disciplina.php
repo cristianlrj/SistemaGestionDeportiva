@@ -9,10 +9,14 @@ class Disciplina extends Controllers{
             die();
 		    }
     }
-    public function registroDisciplina(){
+    public function registroDisciplina($id){
 
+      $data['id_disciplina'] = intval($id);
       $data['page_title'] = APP_NAME;
-      $data['page_name'] = "Registro de Disciplina";
+
+      if( $data['id_disciplina'] > 0) $data['page_name'] = "Actualizar Disciplina";
+      else $data['page_name'] = "Registro de Disciplina";
+
       $data['page_functions'] = functions($this, "registroDisciplina");
       $this->views->getView($this,"registroDisciplina",$data);
 
@@ -28,6 +32,7 @@ class Disciplina extends Controllers{
 
     public function setDisciplina(){
       if($_POST){
+        $id_disciplina = intval($_POST['id_disciplina']);
         $nombre = strClean($_POST['nombre']);
         $descripcion = strClean($_POST['descripcion']);
 
@@ -37,11 +42,17 @@ class Disciplina extends Controllers{
           echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
           die();
       }
-
-      $insert = $this->model->insertDisciplina($nombre, $descripcion);
+      if($id_disciplina == 0) {
+        $insert = $this->model->insertDisciplina($nombre, $descripcion);
+        $msg = "Disciplina actualizada correctamente!";
+      }
+      else {
+        $insert = $this->model->updateDisciplina($id_disciplina, $nombre, $descripcion);
+        $msg = "Disciplina creada correctamente!";
+      }
 
       if($insert > 0){
-          $arrResponse = array("status" => true, "title" => "Exito!", "msg" => "Disciplina creada correctamente!");
+          $arrResponse = array("status" => true, "title" => "Exito!", "msg" => $msg);
       }else{
           $arrResponse = array("status" => false, "title" => "Disciplina ya creada!", "msg" => "Revise sus datos!");
       }
@@ -57,11 +68,15 @@ class Disciplina extends Controllers{
       $arrData = $this->model->selectDisciplinas();
 
       for ($i=0; $i < count($arrData); $i++) { 
-        $arrData[$i]['options'] = "elimina, editar, ver";
+        $arrData[$i]['options'] = '<a class="btn btn-primary" href="'.base_url().'/Disciplina/registroDisciplina/'.$arrData[$i]['id_disciplina'].'">Editar</a>';
       }
 
       echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
 
+    }
+
+    public function getDisciplina($id){
+      //EN proceso
     }
 
 }

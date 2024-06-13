@@ -29,8 +29,29 @@
             return $return;
         }
 
+        public function updateDisciplina(int $id_disciplina, string $nombre, string $descripcion){
+            $this->strNombre = $nombre;
+            $this->strDescripcion = $descripcion;
+
+            $sqlSelect = "SELECT * FROM disciplina WHERE nombre = '$this->strNombre' AND id_disciplina != $id_disciplina";
+            $select = $this->select_all($sqlSelect);
+
+            if(count($select) > 0) $return = 0;
+
+            else{
+            $sql = "UPDATE disciplina SET nombre=?, descripcion=? WHERE id_disciplina = $id_disciplina";
+            $arrData = array($this->strNombre,
+                            $this->strDescripcion);
+
+            $insert = $this->update($sql, $arrData);
+
+            $return = 1;
+            }
+            return $return;
+        }
+
         public function selectDisciplinas(){
-            $sql = "SELECT * FROM disciplina";
+            $sql = "SELECT id_disciplina,nombre,descripcion FROM disciplina";
 
             $request = $this->select_all($sql);
 

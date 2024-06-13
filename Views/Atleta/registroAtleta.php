@@ -96,7 +96,7 @@
             <div class="input-group-text">
             <input type="checkbox" class="form-check-input" name="" id="">
             </div>
-            <input type="text" class="form-control" id="federacion" required="">
+            <input type="text" class="form-control" id="federacion">
             </div>
             
         </div>
