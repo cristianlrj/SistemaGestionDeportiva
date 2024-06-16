@@ -58,5 +58,14 @@
             return $request;
         }
 
+        public function selectDisciplina($id){
+            $sql = "SELECT id_disciplina,nombre,descripcion FROM disciplina 
+                    WHERE id_disciplina = $id";
+
+            $request = $this->select($sql);
+
+            return $request;
+        }
+
     }
  ?>

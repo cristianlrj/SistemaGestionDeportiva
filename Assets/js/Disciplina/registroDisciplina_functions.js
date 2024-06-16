@@ -1,9 +1,18 @@
 let formDisciplina = document.getElementById("formDisciplina");
 let btnFinalizar = document.getElementById("finalizar");
 let id_disciplina = document.getElementById("id_disciplina");
+let nombre = document.getElementById("nombre");
+let descripcion = document.getElementById("descripcion");
 
 if(id_disciplina.value > 0){
     btnFinalizar.textContent = "Actualizar";
+    nombre.disabled = true;
+    fetch(base_url + "/Disciplina/getDisciplina/" + id_disciplina.value)
+    .then(e => e.json())
+    .then((e) => {
+        nombre.value = e.nombre;
+        descripcion.value = e.descripcion;
+    })
 }
 
 formDisciplina.addEventListener("submit", (e) => {

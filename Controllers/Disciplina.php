@@ -76,7 +76,10 @@ class Disciplina extends Controllers{
     }
 
     public function getDisciplina($id){
-      //EN proceso
+      
+      $arrData = $this->model->selectDisciplina($id);
+
+      echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
     }
 
 }
