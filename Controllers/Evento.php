@@ -20,4 +20,13 @@ class Evento extends Controllers{
 
     }
 
+    public function verEventos(){
+
+      $data['page_title'] = APP_NAME;
+      $data['page_name'] = "Eventos";
+      $data['page_functions'] = functions($this, "registroEvento");
+      $this->views->getView($this,"verEvento",$data);
+  
+      }
+
 }

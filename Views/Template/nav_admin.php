@@ -83,4 +83,7 @@
                 Salir
               </a>
             </li>
+            <center>
+              <img src="<?= media() ?>/images/logo.gif" alt="UPTOS" width="70%">
+            </center>
 </ul>
