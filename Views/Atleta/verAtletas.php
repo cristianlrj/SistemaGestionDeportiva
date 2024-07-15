@@ -5,10 +5,11 @@
             <tr>
                 <th>Cedula</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Carrera</th>
-                <th>Tipo</th>
                 <th>Disciplina</th>
+                <th>Talla franela</th>
+                <th>Talla pantalon</th>
+                <th>Talla zapato</th>
+                <th>opc</th>
             </tr>
         </thead>
         <tbody>

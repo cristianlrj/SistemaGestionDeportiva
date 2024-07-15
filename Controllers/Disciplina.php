@@ -33,22 +33,23 @@ class Disciplina extends Controllers{
     public function setDisciplina(){
       if($_POST){
         $id_disciplina = intval($_POST['id_disciplina']);
-        $nombre = strClean($_POST['nombre']);
+       
         $descripcion = strClean($_POST['descripcion']);
 
         
-        if(empty($nombre) || empty($descripcion)){
-          $arrResponse = array('status' => false, "title" => "Error!", "msg" => "Revise los campos!");
-          echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
-          die();
-      }
+        // if(empty($nombre) || empty($descripcion)){
+        //   $arrResponse = array('status' => false, "title" => "Error!", "msg" => "Revise los campos!");
+        //   echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+        //   die();
+      // }
       if($id_disciplina == 0) {
+        $nombre = strClean($_POST['nombre']);
         $insert = $this->model->insertDisciplina($nombre, $descripcion);
-        $msg = "Disciplina actualizada correctamente!";
+        $msg = "Disciplina creada correctamente!";
       }
       else {
-        $insert = $this->model->updateDisciplina($id_disciplina, $nombre, $descripcion);
-        $msg = "Disciplina creada correctamente!";
+        $insert = $this->model->updateDisciplina($id_disciplina, $descripcion);
+        $msg = "Disciplina actualizada correctamente!";
       }
 
       if($insert > 0){

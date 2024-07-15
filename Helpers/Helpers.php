@@ -1,11 +1,12 @@
 <?php 
-
-	//Retorla la url del proyecto
+   require_once ('Libraries/vendor/autoload.php');
+  // use Mpdf\Mpdf;
+	//Retorna la url del proyecto
 	function base_url()
 	{
 		return BASE_URL;
 	}
-    //Retorla la url de Assets
+    //Retorna la url de Assets
     function media()
     {
         return BASE_URL."/Assets";
@@ -130,7 +131,7 @@
         $string = str_ireplace("SELECT COUNT(*) FROM","",$string);
         $string = str_ireplace("DROP TABLE","",$string);
         $string = str_ireplace("OR '1'='1","",$string);
-        $string = str_ireplace("OR","",$string);
+        $string = str_ireplace(" OR ","",$string);
         $string = str_ireplace('OR "1"="1"',"",$string);
         $string = str_ireplace('OR ´1´=´1´',"",$string);
         $string = str_ireplace("is NULL; --","",$string);
@@ -192,4 +193,7 @@
         );
         return $cadena;
     }
+    
+
+
 ?>

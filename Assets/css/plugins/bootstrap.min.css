@@ -7060,7 +7060,9 @@ fieldset:disabled .btn {
 }
 .shadow {
     box-shadow: var(--bs-box-shadow) !important;
+    transition: 0.2s ease-out 100ms;
 }
+
 .shadow-sm {
     box-shadow: var(--bs-box-shadow-sm) !important;
 }

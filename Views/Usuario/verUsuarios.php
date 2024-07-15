@@ -1,6 +1,6 @@
 <?php headerAdmin($data) ?>
 
-    <table id="Disciplinas" class="table table-sm table-hover" style="width:100%">
+    <table id="Usuarios" class="table table-sm table-hover" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>

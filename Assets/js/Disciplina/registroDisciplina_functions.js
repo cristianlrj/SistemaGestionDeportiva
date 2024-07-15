@@ -10,7 +10,7 @@ if(id_disciplina.value > 0){
     fetch(base_url + "/Disciplina/getDisciplina/" + id_disciplina.value)
     .then(e => e.json())
     .then((e) => {
-        nombre.value = e.nombre;
+        nombre.value = e.nombre_disciplina;
         descripcion.value = e.descripcion;
     })
 }

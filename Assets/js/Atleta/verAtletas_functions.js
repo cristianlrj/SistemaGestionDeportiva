@@ -5,16 +5,17 @@ const Atletas = new DataTable("#Atletas", {
         url: base_url + "/Assets/js/plugins/datatables/es-ES.json",
     },
     ajax: {
-        url: base_url + '/Api/getPersons',
+        url: base_url + '/Atleta/getAtletas',
         dataSrc: "",
     },
     columns: [
-       {data: "cedula"},
-       {data: "nombre"},
-       {data: "apellido"},
-       {data: "carrera"},
-       {data: "tipo"},
-       {data: "disciplina"}
+       {data: "CEDULA"},
+       {data: "NOMBRE"},
+       {data: "DISCIPLINA"},
+       {data: "TALLA_FRANELA"},
+       {data: "TALLA_PANTALON"},
+       {data: "TALLA_ZAPATO"},
+       {data: "options"}
     ],
     layout: {
         topStart: {

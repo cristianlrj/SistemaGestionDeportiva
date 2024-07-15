@@ -12,13 +12,13 @@
             $this->strNombre = $nombre;
             $this->strDescripcion = $descripcion;
 
-            $sqlSelect = "SELECT * FROM disciplina WHERE nombre = '$this->strNombre'";
+            $sqlSelect = "SELECT * FROM disciplina_deportiva WHERE nombre_disciplina = '$this->strNombre'";
             $select = $this->select_all($sqlSelect);
 
             if(count($select) > 0) $return = 0;
 
             else{
-            $sql = "INSERT INTO disciplina(nombre, descripcion) VALUES (?,?)";
+            $sql = "INSERT INTO disciplina_deportiva(nombre_disciplina, descripcion) VALUES (?,?)";
             $arrData = array($this->strNombre,
                             $this->strDescripcion);
 
@@ -29,29 +29,28 @@
             return $return;
         }
 
-        public function updateDisciplina(int $id_disciplina, string $nombre, string $descripcion){
-            $this->strNombre = $nombre;
+        public function updateDisciplina(int $id_disciplina, string $descripcion){
             $this->strDescripcion = $descripcion;
 
-            $sqlSelect = "SELECT * FROM disciplina WHERE nombre = '$this->strNombre' AND id_disciplina != $id_disciplina";
-            $select = $this->select_all($sqlSelect);
+            // $sqlSelect = "SELECT * FROM disciplina WHERE id_disciplina != $id_disciplina";
+            // $select = $this->select_all($sqlSelect);
 
-            if(count($select) > 0) $return = 0;
+            // if(count($select) > 0) $return = 0;
 
-            else{
-            $sql = "UPDATE disciplina SET nombre=?, descripcion=? WHERE id_disciplina = $id_disciplina";
-            $arrData = array($this->strNombre,
+            // else{
+            $sql = "UPDATE disciplina_deportiva SET  descripcion=? WHERE id_disciplina = $id_disciplina";
+            $arrData = array(
                             $this->strDescripcion);
 
             $insert = $this->update($sql, $arrData);
 
             $return = 1;
-            }
+            // }
             return $return;
         }
 
         public function selectDisciplinas(){
-            $sql = "SELECT id_disciplina,nombre,descripcion FROM disciplina";
+            $sql = "SELECT id_disciplina,nombre_disciplina,descripcion FROM disciplina_deportiva";
 
             $request = $this->select_all($sql);
 
@@ -59,7 +58,7 @@
         }
 
         public function selectDisciplina($id){
-            $sql = "SELECT id_disciplina,nombre,descripcion FROM disciplina 
+            $sql = "SELECT id_disciplina,nombre_disciplina,descripcion FROM disciplina_deportiva 
                     WHERE id_disciplina = $id";
 
             $request = $this->select($sql);

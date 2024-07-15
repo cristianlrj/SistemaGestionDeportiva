@@ -9,3 +9,11 @@ input[type=number] { -moz-appearance:textfield; }
 .select-group{
     width: max-content !important;
 }
+
+.hover{
+  border: 1px solid rgb(103,0,12,0.1);
+}
+
+.hover:hover{
+  box-shadow: none !important;
+}

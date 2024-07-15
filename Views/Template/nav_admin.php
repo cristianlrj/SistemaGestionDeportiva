@@ -13,6 +13,12 @@
             </a>
           </h6>
 <ul class="nav flex-column mb-auto">
+<li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Usuario/registroUsuario">
+              <i class="fa-solid fa-user"></i>
+                Registro de Usuario
+              </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Atleta/registroAtleta">
               <i class="fa-solid fa-person-running"></i>
@@ -61,9 +67,9 @@
 
           <ul class="nav flex-column mb-auto">
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Atleta/generarReportes">
                 <i class="fa-solid fa-file-lines"></i>
-                Atletas por Disciplina
+                Generar Reportes
               </a>
             </li>
           </ul>

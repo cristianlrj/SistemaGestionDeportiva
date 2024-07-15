@@ -22,15 +22,4 @@ class Api extends Controllers{
             }
         }
     }
-
-    public function getPersonas(){
-
-        $str = file_get_contents('data.json');
-
-        $arr = json_decode($str);
-
-        echo json_encode($arr, JSON_UNESCAPED_UNICODE);
-            
-        
-    }
 }
