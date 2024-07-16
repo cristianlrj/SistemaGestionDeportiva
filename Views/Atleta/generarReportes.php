@@ -1,5 +1,5 @@
 <?php headerAdmin($data) ?>
-<form action="<?= BASE_URL ?>/Atleta/reporteAtletas" method="POST">
+<form action="<?= BASE_URL ?>/Atleta/reporteAtletas" method="POST" target="_blank">
 <div class="container">
     <div class="row">
         <div class="col">
@@ -10,13 +10,13 @@
     <div class="row mt-4">
         <div class="col">
             <label for="campos">Campos</label>
-            <select class="form-select" id="campos" data-placeholder="Click para seleccionar campos" multiple>
-                <option selected>Cedula</option>
-                <option selected>Nombre</option>
-                <option selected>Disciplina</option>
-                <option selected>Talla franela</option>
-                <option selected>Talla pantalon</option>
-                <option selected>Talla Zapato</option>
+            <select class="form-select" id="campos" name="campos[]" data-placeholder="Click para seleccionar campos" multiple>
+                <option selected value="cedula">Cedula</option>
+                <option selected value="nombre">Nombre</option>
+                <option selected value="disciplina">Disciplina</option>
+                <option selected value="talla_franela">Talla franela</option>
+                <option selected value="talla_pantalon">Talla pantalon</option>
+                <option selected value="talla_zapato">Talla Zapato</option>
             </select>
         </div>
     </div>

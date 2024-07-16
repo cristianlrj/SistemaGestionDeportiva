@@ -109,6 +109,8 @@ class Atleta extends Controllers{
 
     public function reporteAtletas(){
 
+        $campos = $_POST['campos'];
+
         $nombre = strClean($_POST['nombre']);
        
         $filtro = $_POST['filtro'];
@@ -132,8 +134,8 @@ class Atleta extends Controllers{
             $valor2 = "";
         }
 
-        $datos = $this->model->selectAtletaReporte($tipo, $filtro, $valor, $filtro2, $valor2);
-
+        $datos = $this->model->selectAtletaReporte($campos, $tipo, $filtro, $valor, $filtro2, $valor2);
+        
         $mpdf = new \Mpdf\Mpdf();
 
         ob_start();

@@ -68,9 +68,17 @@
             return $request;
         }
 
-        public function selectAtletaReporte($tipo, $filtro, $valor, $filtro2, $valor2){
+        public function selectAtletaReporte($campos, $tipo, $filtro, $valor, $filtro2, $valor2){
 
             $where = "WHERE tipo IN ($tipo)";
+
+            $camposTabla = "";
+
+            foreach ($campos as $camp) {
+                $camposTabla .= $camp.",";
+            }
+
+            $camposTabla = substr($camposTabla, 0, -1);
 
             if($filtro == "Disciplina"){
                 $where .= " AND ad.id_disciplina = $valor";
@@ -116,7 +124,7 @@
                 $where .= "";
             }
 
-            $sql = "SELECT a.*,d.nombre_disciplina AS DISCIPLINA, d.id_disciplina,f.* FROM atleta a 
+            $sql = "SELECT ".$camposTabla." FROM atleta a 
             INNER JOIN atleta_asigna_disciplina ad ON a.id_atleta = ad.id_atleta
             INNER JOIN disciplina_deportiva d ON ad.id_disciplina = d.id_disciplina
             INNER JOIN ficha_medica f ON f.id_atleta = a.id_atleta ".$where;
