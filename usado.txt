@@ -5,3 +5,66 @@ jQuery 3.7.0, JSZip 3.10.1, DataTables 2.0.3, Buttons 3.0.1, HTML5 export 3.0.1 
 sweetalert2 v11.10.7 - https://sweetalert2.github.io/
 
 Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
+
+mPDF 8.2.1 https://mpdf.github.io/
+
+Select2 4.1.0-rc.0 https://select2.org/
+
+-----------DESCRIPCION----------
+
+Bootstrap v5.3.3
+
+URL: getbootstrap.com
+Función: Bootstrap es un framework de desarrollo front-end que facilita la creación de sitios web y aplicaciones web responsivas. Ofrece una amplia gama de componentes y utilidades CSS y JavaScript para el diseño, tipografía, navegación y otros elementos de la interfaz de usuario.
+
+jQuery 3.7.0
+
+URL: jquery.com
+Función: jQuery es una biblioteca JavaScript rápida y concisa que simplifica tareas comunes como la manipulación del DOM, el manejo de eventos, la animación y la interacción con servicios AJAX.
+
+JSZip 3.10.1
+
+URL: github.com/Stuk/jszip
+Función: JSZip es una biblioteca para crear, leer y editar archivos ZIP con JavaScript. Es útil para la generación y manipulación de archivos comprimidos en aplicaciones web.
+
+DataTables 2.0.3
+
+URL: datatables.net
+Función: DataTables es una extensión de jQuery que agrega funcionalidad avanzada a las tablas HTML, como la paginación, la búsqueda, la ordenación y la exportación de datos.
+
+Buttons 3.0.1 (para DataTables)
+
+URL: datatables.net/extensions/buttons
+Función: La extensión Buttons de DataTables añade botones a las tablas que permiten realizar acciones como copiar, CSV, Excel, PDF y exportar impresión.
+
+HTML5 export 3.0.1 (para DataTables)
+
+URL: datatables.net/extensions/buttons/examples/initialisation/export.html
+Función: Proporciona opciones para exportar datos de DataTables en formatos compatibles con HTML5, como CSV, Excel, y PDF.
+
+sweetalert2 v11.10.7
+
+URL: sweetalert2.github.io
+Función: SweetAlert2 es una biblioteca que proporciona alertas personalizables y modales en lugar de los diálogos estándar del navegador. Es ideal para mostrar mensajes, confirmaciones y formularios en una interfaz elegante y amigable.
+
+Font Awesome Free 6.5.2
+
+URL: fontawesome.com
+Función: Font Awesome es una colección de iconos vectoriales que se pueden usar en sitios web y aplicaciones. Ofrece una amplia variedad de iconos para mejorar la estética y funcionalidad de la interfaz de usuario.
+
+mPDF 8.2.1
+
+URL: mpdf.github.io
+Función: mPDF es una biblioteca PHP que convierte archivos HTML a PDF utilizando el motor de renderizado HTML2PDF. Es útil para generar documentos PDF dinámicos a partir de contenido HTML.
+
+Select2 4.1.0-rc.0
+
+URL: select2.org
+Función: Select2 es una biblioteca de jQuery que mejora los campos de selección HTML estándar con capacidades de búsqueda, autocompletado, etiquetas y más.
+Estas herramientas y bibliotecas son comúnmente utilizadas en el desarrollo web para mejorar la funcionalidad, la apariencia y la experiencia del usuario en aplicaciones y sitios web.
+
+
+
+
+
+
