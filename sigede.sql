@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 10, 2024 at 08:19 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-07-2024 a las 20:34:08
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sigede`
+-- Base de datos: `sigede`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `atleta`
+-- Estructura de tabla para la tabla `atleta`
 --
 
 CREATE TABLE `atleta` (
@@ -46,19 +46,19 @@ CREATE TABLE `atleta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `atleta`
+-- Volcado de datos para la tabla `atleta`
 --
 
 INSERT INTO `atleta` (`ID_ATLETA`, `CEDULA`, `NOMBRE`, `APELLIDO`, `FEDERADO`, `TIPO`, `CORREO`, `TELEFONO`, `TALLA_ZAPATO`, `TALLA_FRANELA`, `TALLA_PANTALON`, `ESTATURA`, `PESO`, `SEXO`, `FECHA_NAT`) VALUES
-(2, '30143282', 'Cristian Rojas', NULL, NULL, NULL, NULL, NULL, '41', 'S', '12', '174', '55', NULL, NULL),
-(3, '29612312', 'Miguelangel Montaño', NULL, NULL, NULL, NULL, NULL, '42', 'M', 'L', '180', '70', NULL, NULL),
-(4, '27935005', 'Oscar Anderson', NULL, NULL, NULL, NULL, NULL, '41', 'M', 'L', '160', '78', NULL, NULL),
-(5, '27335452', 'Laura Quintero', NULL, NULL, NULL, NULL, NULL, '38', 'M', 'M', '160', '50', NULL, NULL);
+(2, '30143282', 'Cristian Rojas', NULL, NULL, 1, NULL, NULL, '41', 'S', 'M', '174', '55', 'M', NULL),
+(3, '29612312', 'Miguelangel Montaño', NULL, NULL, 1, NULL, NULL, '42', 'M', 'L', '180', '70', 'M', NULL),
+(4, '27935005', 'Oscar Anderson', NULL, NULL, 2, NULL, NULL, '41', 'M', 'L', '160', '78', 'M', NULL),
+(5, '27335452', 'Laura Quintero', NULL, NULL, 1, NULL, NULL, '38', 'M', 'M', '160', '50', 'F', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `atletas_asigna_evento`
+-- Estructura de tabla para la tabla `atletas_asigna_evento`
 --
 
 CREATE TABLE `atletas_asigna_evento` (
@@ -69,7 +69,7 @@ CREATE TABLE `atletas_asigna_evento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `atleta_asigna_disciplina`
+-- Estructura de tabla para la tabla `atleta_asigna_disciplina`
 --
 
 CREATE TABLE `atleta_asigna_disciplina` (
@@ -78,7 +78,7 @@ CREATE TABLE `atleta_asigna_disciplina` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `atleta_asigna_disciplina`
+-- Volcado de datos para la tabla `atleta_asigna_disciplina`
 --
 
 INSERT INTO `atleta_asigna_disciplina` (`ID_DISCIPLINA`, `ID_ATLETA`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `atleta_asigna_disciplina` (`ID_DISCIPLINA`, `ID_ATLETA`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `convocatoria`
+-- Estructura de tabla para la tabla `convocatoria`
 --
 
 CREATE TABLE `convocatoria` (
@@ -104,7 +104,7 @@ CREATE TABLE `convocatoria` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `disciplina_asigna_evento`
+-- Estructura de tabla para la tabla `disciplina_asigna_evento`
 --
 
 CREATE TABLE `disciplina_asigna_evento` (
@@ -115,20 +115,20 @@ CREATE TABLE `disciplina_asigna_evento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `disciplina_deportiva`
+-- Estructura de tabla para la tabla `disciplina_deportiva`
 --
 
 CREATE TABLE `disciplina_deportiva` (
   `ID_DISCIPLINA` int(11) NOT NULL,
-  `NOMBRE_DISCIPLINA` varchar(50) DEFAULT NULL,
+  `DISCIPLINA` varchar(50) DEFAULT NULL,
   `DESCRIPCION` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `disciplina_deportiva`
+-- Volcado de datos para la tabla `disciplina_deportiva`
 --
 
-INSERT INTO `disciplina_deportiva` (`ID_DISCIPLINA`, `NOMBRE_DISCIPLINA`, `DESCRIPCION`) VALUES
+INSERT INTO `disciplina_deportiva` (`ID_DISCIPLINA`, `DISCIPLINA`, `DESCRIPCION`) VALUES
 (1, 'Futbol', 'futbol campo ja'),
 (2, 'Baloncesto', 'basquet'),
 (3, 'Futbol sala', 'equipo de futbol sala'),
@@ -137,7 +137,7 @@ INSERT INTO `disciplina_deportiva` (`ID_DISCIPLINA`, `NOMBRE_DISCIPLINA`, `DESCR
 -- --------------------------------------------------------
 
 --
--- Table structure for table `evento`
+-- Estructura de tabla para la tabla `evento`
 --
 
 CREATE TABLE `evento` (
@@ -150,7 +150,7 @@ CREATE TABLE `evento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ficha_medica`
+-- Estructura de tabla para la tabla `ficha_medica`
 --
 
 CREATE TABLE `ficha_medica` (
@@ -161,7 +161,7 @@ CREATE TABLE `ficha_medica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ficha_medica`
+-- Volcado de datos para la tabla `ficha_medica`
 --
 
 INSERT INTO `ficha_medica` (`ID_ATLETA`, `TIPO_SANGRE`, `ALERGIAS`, `PATOLOGIAS`) VALUES
@@ -173,7 +173,7 @@ INSERT INTO `ficha_medica` (`ID_ATLETA`, `TIPO_SANGRE`, `ALERGIAS`, `PATOLOGIAS`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suspension`
+-- Estructura de tabla para la tabla `suspension`
 --
 
 CREATE TABLE `suspension` (
@@ -187,7 +187,7 @@ CREATE TABLE `suspension` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -198,140 +198,140 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `email`, `clave`) VALUES
 (1, 'Administrador', 'admin@sige.de', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `atleta`
+-- Indices de la tabla `atleta`
 --
 ALTER TABLE `atleta`
   ADD PRIMARY KEY (`ID_ATLETA`);
 
 --
--- Indexes for table `atletas_asigna_evento`
+-- Indices de la tabla `atletas_asigna_evento`
 --
 ALTER TABLE `atletas_asigna_evento`
   ADD PRIMARY KEY (`ID_EVENTO`,`ID_ATLETA`),
   ADD KEY `FK_PARTICIPAN2` (`ID_ATLETA`);
 
 --
--- Indexes for table `atleta_asigna_disciplina`
+-- Indices de la tabla `atleta_asigna_disciplina`
 --
 ALTER TABLE `atleta_asigna_disciplina`
   ADD PRIMARY KEY (`ID_DISCIPLINA`,`ID_ATLETA`),
   ADD KEY `FK_PERTENECE2` (`ID_ATLETA`);
 
 --
--- Indexes for table `convocatoria`
+-- Indices de la tabla `convocatoria`
 --
 ALTER TABLE `convocatoria`
   ADD PRIMARY KEY (`ID_EVENTO`,`ID_CONVOCATORIA`);
 
 --
--- Indexes for table `disciplina_asigna_evento`
+-- Indices de la tabla `disciplina_asigna_evento`
 --
 ALTER TABLE `disciplina_asigna_evento`
   ADD PRIMARY KEY (`ID_EVENTO`,`ID_DISCIPLINA`),
   ADD KEY `FK_PARTICIPA2` (`ID_DISCIPLINA`);
 
 --
--- Indexes for table `disciplina_deportiva`
+-- Indices de la tabla `disciplina_deportiva`
 --
 ALTER TABLE `disciplina_deportiva`
   ADD PRIMARY KEY (`ID_DISCIPLINA`);
 
 --
--- Indexes for table `evento`
+-- Indices de la tabla `evento`
 --
 ALTER TABLE `evento`
   ADD PRIMARY KEY (`ID_EVENTO`);
 
 --
--- Indexes for table `ficha_medica`
+-- Indices de la tabla `ficha_medica`
 --
 ALTER TABLE `ficha_medica`
   ADD PRIMARY KEY (`ID_ATLETA`);
 
 --
--- Indexes for table `suspension`
+-- Indices de la tabla `suspension`
 --
 ALTER TABLE `suspension`
   ADD PRIMARY KEY (`ID_ATLETA`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idusuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `atleta`
+-- AUTO_INCREMENT de la tabla `atleta`
 --
 ALTER TABLE `atleta`
   MODIFY `ID_ATLETA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `disciplina_deportiva`
+-- AUTO_INCREMENT de la tabla `disciplina_deportiva`
 --
 ALTER TABLE `disciplina_deportiva`
   MODIFY `ID_DISCIPLINA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `atletas_asigna_evento`
+-- Filtros para la tabla `atletas_asigna_evento`
 --
 ALTER TABLE `atletas_asigna_evento`
   ADD CONSTRAINT `FK_PARTICIPAN` FOREIGN KEY (`ID_EVENTO`) REFERENCES `evento` (`ID_EVENTO`),
   ADD CONSTRAINT `FK_PARTICIPAN2` FOREIGN KEY (`ID_ATLETA`) REFERENCES `atleta` (`ID_ATLETA`);
 
 --
--- Constraints for table `atleta_asigna_disciplina`
+-- Filtros para la tabla `atleta_asigna_disciplina`
 --
 ALTER TABLE `atleta_asigna_disciplina`
   ADD CONSTRAINT `FK_PERTENECE` FOREIGN KEY (`ID_DISCIPLINA`) REFERENCES `disciplina_deportiva` (`ID_DISCIPLINA`),
   ADD CONSTRAINT `FK_PERTENECE2` FOREIGN KEY (`ID_ATLETA`) REFERENCES `atleta` (`ID_ATLETA`);
 
 --
--- Constraints for table `convocatoria`
+-- Filtros para la tabla `convocatoria`
 --
 ALTER TABLE `convocatoria`
   ADD CONSTRAINT `FK_ID_evento` FOREIGN KEY (`ID_EVENTO`) REFERENCES `evento` (`ID_EVENTO`);
 
 --
--- Constraints for table `disciplina_asigna_evento`
+-- Filtros para la tabla `disciplina_asigna_evento`
 --
 ALTER TABLE `disciplina_asigna_evento`
   ADD CONSTRAINT `FK_PARTICIPA` FOREIGN KEY (`ID_EVENTO`) REFERENCES `evento` (`ID_EVENTO`),
   ADD CONSTRAINT `FK_PARTICIPA2` FOREIGN KEY (`ID_DISCIPLINA`) REFERENCES `disciplina_deportiva` (`ID_DISCIPLINA`);
 
 --
--- Constraints for table `ficha_medica`
+-- Filtros para la tabla `ficha_medica`
 --
 ALTER TABLE `ficha_medica`
   ADD CONSTRAINT `FK_OBTIENE` FOREIGN KEY (`ID_ATLETA`) REFERENCES `atleta` (`ID_ATLETA`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `suspension`
+-- Filtros para la tabla `suspension`
 --
 ALTER TABLE `suspension`
   ADD CONSTRAINT `FK_PUEDE_SER2` FOREIGN KEY (`ID_ATLETA`) REFERENCES `atleta` (`ID_ATLETA`) ON UPDATE CASCADE;
