@@ -61,7 +61,6 @@ Select2 4.1.0-rc.0
 
 URL: select2.org
 Función: Select2 es una biblioteca de jQuery que mejora los campos de selección HTML estándar con capacidades de búsqueda, autocompletado, etiquetas y más.
-Estas herramientas y bibliotecas son comúnmente utilizadas en el desarrollo web para mejorar la funcionalidad, la apariencia y la experiencia del usuario en aplicaciones y sitios web.
 
 
 
