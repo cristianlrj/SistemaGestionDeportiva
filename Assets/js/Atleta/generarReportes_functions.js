@@ -31,7 +31,7 @@ filtro.addEventListener('change', function() {
                 options.forEach((option) => {
                     let opt = document.createElement('option');
                     opt.value = option.id_disciplina;
-                    opt.textContent = option.nombre_disciplina;
+                    opt.textContent = option.disciplina;
                     inputField.appendChild(opt);
                 });
         })
@@ -96,7 +96,7 @@ filtro2.addEventListener('change', function() {
                 options.forEach((option) => {
                     let opt = document.createElement('option');
                     opt.value = option.id_disciplina;
-                    opt.textContent = option.nombre_disciplina;
+                    opt.textContent = option.disciplina;
                     inputField.appendChild(opt);
                 });
         })
