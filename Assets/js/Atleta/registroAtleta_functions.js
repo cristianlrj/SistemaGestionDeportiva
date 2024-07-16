@@ -63,7 +63,7 @@ function llenarDisciplinas() {
             options.forEach((option) => {
                 let opt = document.createElement('option');
                 opt.value = option.id_disciplina;
-                opt.textContent = option.nombre_disciplina;
+                opt.textContent = option.disciplina;
                 disciplina.appendChild(opt);
             });
     })

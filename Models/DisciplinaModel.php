@@ -12,13 +12,13 @@
             $this->strNombre = $nombre;
             $this->strDescripcion = $descripcion;
 
-            $sqlSelect = "SELECT * FROM disciplina_deportiva WHERE nombre_disciplina = '$this->strNombre'";
+            $sqlSelect = "SELECT * FROM disciplina_deportiva WHERE disciplina = '$this->strNombre'";
             $select = $this->select_all($sqlSelect);
 
             if(count($select) > 0) $return = 0;
 
             else{
-            $sql = "INSERT INTO disciplina_deportiva(nombre_disciplina, descripcion) VALUES (?,?)";
+            $sql = "INSERT INTO disciplina_deportiva(disciplina, descripcion) VALUES (?,?)";
             $arrData = array($this->strNombre,
                             $this->strDescripcion);
 
@@ -50,7 +50,7 @@
         }
 
         public function selectDisciplinas(){
-            $sql = "SELECT id_disciplina,nombre_disciplina,descripcion FROM disciplina_deportiva";
+            $sql = "SELECT id_disciplina,disciplina,descripcion FROM disciplina_deportiva";
 
             $request = $this->select_all($sql);
 
@@ -58,7 +58,7 @@
         }
 
         public function selectDisciplina($id){
-            $sql = "SELECT id_disciplina,nombre_disciplina,descripcion FROM disciplina_deportiva 
+            $sql = "SELECT id_disciplina,disciplina,descripcion FROM disciplina_deportiva 
                     WHERE id_disciplina = $id";
 
             $request = $this->select($sql);
