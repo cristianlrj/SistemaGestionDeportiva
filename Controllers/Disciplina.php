@@ -9,6 +9,7 @@ class Disciplina extends Controllers{
             die();
 		    }
     }
+
     public function registroDisciplina($id){
 
       $data['id_disciplina'] = intval($id);
@@ -19,8 +20,8 @@ class Disciplina extends Controllers{
 
       $data['page_functions'] = functions($this, "registroDisciplina");
       $this->views->getView($this,"registroDisciplina",$data);
-
     }
+
     public function verDisciplinas(){
 
       $data['page_title'] = APP_NAME;
@@ -44,6 +45,7 @@ class Disciplina extends Controllers{
       // }
       if($id_disciplina == 0) {
         $nombre = strClean($_POST['nombre']);
+        
         $insert = $this->model->insertDisciplina($nombre, $descripcion);
         $msg = "Disciplina creada correctamente!";
       }

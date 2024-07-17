@@ -10,7 +10,7 @@
 			}else{
 				$view = "Views/".$controller."/".$view.".php";
 			}
-			require_once ($view);
+			require_once($view);
 		}
 	}
 

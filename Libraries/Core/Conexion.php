@@ -12,6 +12,7 @@ class Conexion{
 			//$this->conect = 'Error de conexión';
 		    echo "ERROR: " . $e->getMessage();
 		}
+		
 	}
 
 	public function conect(){

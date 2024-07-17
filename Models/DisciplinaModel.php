@@ -3,6 +3,7 @@
 	{
         private $strNombre;
         private $strDescripcion;
+
 		public function __construct()
 		{
 			parent::__construct();
@@ -32,20 +33,13 @@
         public function updateDisciplina(int $id_disciplina, string $descripcion){
             $this->strDescripcion = $descripcion;
 
-            // $sqlSelect = "SELECT * FROM disciplina WHERE id_disciplina != $id_disciplina";
-            // $select = $this->select_all($sqlSelect);
-
-            // if(count($select) > 0) $return = 0;
-
-            // else{
-            $sql = "UPDATE disciplina_deportiva SET  descripcion=? WHERE id_disciplina = $id_disciplina";
-            $arrData = array(
-                            $this->strDescripcion);
+            $sql = "UPDATE disciplina_deportiva SET descripcion=? WHERE id_disciplina = $id_disciplina";
+            $arrData = array($this->strDescripcion);
 
             $insert = $this->update($sql, $arrData);
 
             $return = 1;
-            // }
+
             return $return;
         }
 

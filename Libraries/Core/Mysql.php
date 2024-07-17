@@ -6,7 +6,7 @@
 		private $strQuery;
 		private $arrValues;
 
-		function __construct()
+		public function __construct()
 		{
 			parent::__construct();
 			$this->conexion = $this->conect();
