@@ -68,6 +68,18 @@
             return $request;
         }
 
+        public function selectAtletaCI($cedula){
+            $sql = "SELECT a.*,d.disciplina as DISCIPLINA, d.id_disciplina,f.* FROM atleta a 
+            INNER JOIN atleta_asigna_disciplina ad ON a.id_atleta = ad.id_atleta
+            INNER JOIN disciplina_deportiva d ON ad.id_disciplina = d.id_disciplina
+            INNER JOIN ficha_medica f ON f.id_atleta = a.id_atleta
+            WHERE a.cedula = '$cedula'";
+
+            $request = $this->select($sql);
+
+            return $request;
+        }
+
         public function selectAtletaReporte($campos, $tipo, $filtro, $valor, $filtro2, $valor2){
 
             $where = "WHERE tipo IN ($tipo)";

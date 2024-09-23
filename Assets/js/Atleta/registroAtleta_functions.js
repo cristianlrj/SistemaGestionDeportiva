@@ -70,19 +70,25 @@ function llenarDisciplinas() {
     
 }
 
-cedula.addEventListener("keyup", (e) => {
+cedula.addEventListener("keypress", (e) => {
     let cedula = e.target.value;
-    if (cedula.trim() !== "" && cedula.length > 6) {
-        buscarApi()
-    } else {
-        // Limpiar los campos si la cédula está vacía
-        nombreCompleto.value = "";
-        carrera.value = "";
-        trayecto.value = "";
-        seccion.value = "";
-        tipo.value = "";
-        sexo.value = ""
+    if(e.keyCode == 13) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (cedula.trim() !== "" && cedula.length > 6) {
+            buscarApi()
+        } else {
+            // Limpiar los campos si la cédula está vacía
+            nombreCompleto.value = "";
+            carrera.value = "";
+            trayecto.value = "";
+            seccion.value = "";
+            tipo.value = "";
+            sexo.value = "";
+            fecha.value = "";
+        }
     }
+     
 });
 
 function buscarApi() {
@@ -90,27 +96,87 @@ function buscarApi() {
     .then(res => res.json())
     .then(data => {
         if (data.status) {
-            let persona = data.data;
-            // Actualizar los campos del formulario con los datos obtenidos
-            nombreCompleto.value = persona.fullname;
-            carrera.value = persona.carrera;
-            trayecto.value = persona.trayecto;
-            seccion.value = persona.seccion;
-            tipo.value = persona.tipo;
-            sexo.value = persona.sexo;
-            fecha.value = persona.fecha_nac;
+            fetch(base_url + "/Atleta/getAtletaCI/" + cedula.value)
+            .then(res => res.json())
+            .then(data2 => {
+                if(data2){
+                    Swal.fire({
+                        title: 'Atleta ya registrado',
+                        text: 'La cedula que ingresó ya esta registrada',
+                        icon: 'warning',
+                        allowOutsideClick: false,
+                        confirmButtonText: "Continuar"
+                    });
+                    nombreCompleto.value = "";
+                    carrera.value = "";
+                    trayecto.value = "";
+                    seccion.value = "";
+                    tipo.value = "";
+                    sexo.value = "";
+                    fecha.value = "";
+                }else{
+                    Swal.fire({
+                        position: 'top-end',
+                        toast: true,
+                        title: 'Cedula encontrada',
+                        icon: 'success',
+                        timer: 1500,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+            
+                    });
+                    let persona = data.data;
+                    // Actualizar los campos del formulario con los datos obtenidos
+                    nombreCompleto.value = persona.fullname;
+                    carrera.value = persona.carrera;
+                    trayecto.value = persona.trayecto;
+                    seccion.value = persona.seccion;
+                    tipo.value = persona.tipo;
+                    sexo.value = persona.sexo;
+                    fecha.value = persona.fecha_nac;
+                }
+            })
         } else {
-            // Limpiar los campos si no se encontraron datos para la cédula ingresada
-            nombreCompleto.value = "";
+            console.error('Error:', error);
+        Swal.fire({
+            position: 'top-end',
+            toast: true,
+            title: 'No se encontró la persona con la cédula proporcionada',
+            icon: 'warning',
+            timer: 1500,
+            timerProgressBar: true,
+            showConfirmButton: false,
+
+        });
+        nombreCompleto.value = "";
             carrera.value = "";
             trayecto.value = "";
             seccion.value = "";
             tipo.value = "";
             sexo.value = "";
+            fecha.value = "";
+        // Manejar errores en la solicitud fetch
         }
     })
     .catch(error => {
         console.error('Error:', error);
+        Swal.fire({
+            position: 'top-end',
+            toast: true,
+            title: 'No se encontró la persona con la cédula proporcionada',
+            icon: 'warning',
+            timer: 1500,
+            timerProgressBar: true,
+            showConfirmButton: false,
+
+        });
+        nombreCompleto.value = "";
+            carrera.value = "";
+            trayecto.value = "";
+            seccion.value = "";
+            tipo.value = "";
+            sexo.value = "";
+            fecha.value = "";
         // Manejar errores en la solicitud fetch
     });
 }

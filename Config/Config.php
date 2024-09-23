@@ -10,7 +10,7 @@
 	const DB_HOST = "localhost";
 	const DB_NAME = "sigede";
 	const DB_USER = "root";
-	const DB_PASSWORD = "";
+	const DB_PASSWORD = "root";
 	const DB_CHARSET = "utf8";
 
 	const APP_NAME = "SIGEDE";

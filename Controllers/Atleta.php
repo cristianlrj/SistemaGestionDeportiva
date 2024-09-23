@@ -107,6 +107,13 @@ class Atleta extends Controllers{
       echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
     }
 
+    public function getAtletaCI($cedula){
+      
+        $arrData = $this->model->selectAtletaCI($cedula);
+  
+        echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+      }
+
     public function reporteAtletas(){
 
         $campos = $_POST['campos'];
