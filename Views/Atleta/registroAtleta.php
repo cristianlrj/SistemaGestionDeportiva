@@ -77,7 +77,7 @@
         </div>
         <div class="col-md-3">
             <label for="disciplina" class="form-label">Disciplina</label>
-            <select class="form-select" id="disciplina" name="disciplina" required="">
+            <select class="form-select" id="disciplina" name="disciplina[]" multiple required="">
                 </select>
             
         </div>

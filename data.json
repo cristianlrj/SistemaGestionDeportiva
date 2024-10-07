@@ -3,5 +3,6 @@
     {"cedula": "27335452", "fullname": "Laura Quintero", "carrera": "Informatica", "trayecto": "2", "seccion": "2", "tipo" : "Estudiante", "fecha_nac": "2000-07-29", "sexo": "F"},
     {"cedula": "29612312", "fullname": "Miguelangel Montaño", "carrera": "Informatica", "trayecto": "2", "seccion": "2", "tipo" : "Estudiante", "fecha_nac": "2000-11-10", "sexo": "M"},
     {"cedula": "27935005", "fullname": "Oscar Anderson", "carrera": "Jardineria (Falta listado)", "trayecto": "", "seccion": "", "tipo" : "Obrero", "fecha_nac": "2000-11-03", "sexo": "M"},
-    {"cedula": "12345678", "fullname": "JOSE PRUEBA", "carrera": "Jardineria (Falta listado)", "trayecto": "", "seccion": "", "tipo" : "Obrero", "fecha_nac": "2000-11-03", "sexo": "M"}
+    {"cedula": "12345678", "fullname": "JOSE PRUEBA", "carrera": "Jardineria (Falta listado)", "trayecto": "", "seccion": "", "tipo" : "Obrero", "fecha_nac": "2000-11-03", "sexo": "M"},
+    {"cedula": "87654321", "fullname": "SAMUEL PRUEBA", "carrera": "Jardineria (Falta listado)", "trayecto": "", "seccion": "", "tipo" : "Obrero", "fecha_nac": "2000-11-03", "sexo": "M"}
 ]

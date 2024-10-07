@@ -13,24 +13,26 @@
             </a>
           </h6>
 <ul class="nav flex-column mb-auto">
-<li class="nav-item">
+             <!-- 
+            <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Usuario/registroUsuario">
               <i class="fa-solid fa-user"></i>
                 Registro de Usuario
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Atleta/registroAtleta">
               <i class="fa-solid fa-person-running"></i>
                 Registro de Atleta
               </a>
             </li>
+            <!-- 
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Evento/registroEvento">
               <i class="fa-solid fa-calendar-days"></i>
                 Registro de Evento
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Disciplina/registroDisciplina">
               <i class="fa-solid fa-dumbbell"></i>
@@ -77,12 +79,13 @@
           <hr class="my-3">
 
           <ul class="nav flex-column mb-auto">
+            <!-- 
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
               <i class="fa-solid fa-gear"></i>
                 Configurar
               </a>
-            </li>
+            </li>-->
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url() ?>/Logout">
               <i class="fa-solid fa-right-from-bracket"></i>

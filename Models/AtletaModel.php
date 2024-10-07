@@ -8,7 +8,7 @@
 			parent::__construct();
 		}
 
-        public function insertAtleta($cedula, $nombre, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $alergias, $patologias, $disciplina, $tipo_sangre){
+        public function insertAtleta($cedula, $nombre, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $alergias, $patologias, $disciplina, $tipo_sangre, $tipo, $sexo){
             $this->intCedula = $cedula;
 
             $sqlSelect = "SELECT * FROM atleta WHERE cedula = '$this->intCedula'";
@@ -17,16 +17,18 @@
             if(count($select) > 0) $return = 0;
 
             else{
-            $sql = "INSERT INTO atleta(cedula,nombre,talla_zapato,talla_franela,talla_pantalon,estatura,peso) VALUES (?,?,?,?,?,?,?)";
-            $arrData = array($cedula, $nombre, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso);
+            $sql = "INSERT INTO atleta(cedula,nombre,talla_zapato,talla_franela,talla_pantalon,estatura,peso, tipo, sexo) VALUES (?,?,?,?,?,?,?,?, ?)";
+            $arrData = array($cedula, $nombre, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $tipo, $sexo);
 
             $insert_id = $this->insert($sql, $arrData);
             
-            
-            $sqlDisciplina = "INSERT INTO atleta_asigna_disciplina(id_atleta,id_disciplina) VALUES (?,?)";
-            $arrDataDisciplina = array($insert_id, $disciplina);
+            for ($i=0; $i < count($disciplina); $i++) { 
+                $sqlDisciplina = "INSERT INTO atleta_asigna_disciplina(id_atleta,id_disciplina) VALUES (?,?)";
+                $arrDataDisciplina = array($insert_id, $disciplina[$i]);
 
-            $this->insert($sqlDisciplina, $arrDataDisciplina);
+                $this->insert($sqlDisciplina, $arrDataDisciplina);
+            }
+            
 
             $sqlFicha = "INSERT INTO ficha_medica(id_atleta,alergias,patologias,tipo_sangre) VALUES (?,?,?,?)";
             $arrDataFicha = array($insert_id, $alergias, $patologias, $tipo_sangre);
@@ -38,9 +40,9 @@
             return $return;
         }
 
-        public function updateAtleta($id_atleta, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $alergias, $patologias, $disciplina, $tipo_sangre){
-            $sql = "UPDATE atleta SET talla_zapato = ?,talla_franela = ?,talla_pantalon = ?,estatura = ?,peso = ? WHERE id_atleta = $id_atleta";
-            $arrData = array($talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso);
+        public function updateAtleta($id_atleta, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $alergias, $patologias, $disciplina, $tipo_sangre,$tipo, $sexo){
+            $sql = "UPDATE atleta SET talla_zapato = ?,talla_franela = ?,talla_pantalon = ?,estatura = ?,peso = ?, tipo=?, sexo=? WHERE id_atleta = $id_atleta";
+            $arrData = array($talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $tipo, $sexo);
 
             $insert_id = $this->update($sql, $arrData);
              return 1;
@@ -69,11 +71,8 @@
         }
 
         public function selectAtletaCI($cedula){
-            $sql = "SELECT a.*,d.disciplina as DISCIPLINA, d.id_disciplina,f.* FROM atleta a 
-            INNER JOIN atleta_asigna_disciplina ad ON a.id_atleta = ad.id_atleta
-            INNER JOIN disciplina_deportiva d ON ad.id_disciplina = d.id_disciplina
-            INNER JOIN ficha_medica f ON f.id_atleta = a.id_atleta
-            WHERE a.cedula = '$cedula'";
+            $sql = "SELECT * FROM atleta 
+            WHERE cedula = '$cedula'";
 
             $request = $this->select($sql);
 

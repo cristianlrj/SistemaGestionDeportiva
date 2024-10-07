@@ -62,16 +62,32 @@ class Atleta extends Controllers{
             $peso = intval($_POST['peso']);
             $alergias = strClean($_POST['alergias']);
             $patologias = strClean($_POST['patologias']);
-            $disciplina = intval($_POST['disciplina']);
+            $disciplina = $_POST['disciplina'];
+            $sexo = strClean($_POST['sexo']);
             $tipo_sangre = strClean($_POST['tipo_sangre']);
-
+            $tipo_string = strClean($_POST['tipo']);
+            $tipo=0;
+            switch ($tipo_string) {
+                case 'Estudiante':
+                    $tipo=1;
+                    break;
+                case 'Obrero':
+                    $tipo=2;
+                    break;
+                case 'Docente':
+                    $tipo=3;
+                    break;
+                case 'Administrativo':
+                    $tipo=4;
+                    break;
+            }
 
             if($id_atleta == 0){
             // Inserta los datos del atleta en la base de datos
                 $cedula = intval($_POST['cedula']);
-                $insert = $this->model->insertAtleta($cedula, $nombre, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $alergias, $patologias, $disciplina, $tipo_sangre);
+                $insert = $this->model->insertAtleta($cedula, $nombre, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $alergias, $patologias, $disciplina, $tipo_sangre, $tipo, $sexo);
             }else{
-                $insert = $this->model->updateAtleta($id_atleta, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $alergias, $patologias, $disciplina, $tipo_sangre);
+                $insert = $this->model->updateAtleta($id_atleta, $talla_zapato, $talla_franela, $talla_pantalon, $estatura, $peso, $alergias, $patologias, $disciplina, $tipo_sangre, $tipo, $sexo);
             }
             // Verifica si la inserción fue exitosa
             if($insert > 0){
@@ -145,12 +161,13 @@ class Atleta extends Controllers{
         
         $mpdf = new \Mpdf\Mpdf();
 
+        $mpdf->setFooter('{PAGENO}');
+
         ob_start();
 
         require_once('Views/Template/pdf/reporteAtleta.php');
 
         $html = ob_get_clean();
-
         // Write some HTML code:
         $mpdf->WriteHTML($html);
         

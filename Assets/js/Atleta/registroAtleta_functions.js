@@ -1,3 +1,10 @@
+$( '#disciplina' ).select2( {
+    theme: "bootstrap-5",
+    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+    placeholder: $( this ).data( 'placeholder' ),
+    closeOnSelect: true,
+} );
+
 let formAtleta = document.getElementById("formAtleta");
 
 let cedula = document.getElementById("cedula");
@@ -21,6 +28,10 @@ let btnFinalizar = document.getElementById("id_atleta");
 
 
 if(id_atleta.value > 0){
+    actualizacionAtleta();
+}
+
+function actualizacionAtleta(){
     btnFinalizar.textContent = "Actualizar";
     fetch(base_url + "/Atleta/getAtleta/" + id_atleta.value)
     .then(e => e.json())
@@ -34,7 +45,13 @@ if(id_atleta.value > 0){
         peso.value = e.PESO;
         tipo_sangre.value = e.TIPO_SANGRE;
         setTimeout(() => {
-            disciplina.value = e.id_disciplina; 
+            disciplina.value = e.id_disciplina;
+            $( '#disciplina' ).select2( {
+            theme: "bootstrap-5",
+            width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+            placeholder: $( this ).data( 'placeholder' ),
+            closeOnSelect: true,
+            } ); 
         }, 100);
         if (cedula.value.trim() !== "" && cedula.value.length > 6) {
            buscarApi();
@@ -96,24 +113,35 @@ function buscarApi() {
     .then(res => res.json())
     .then(data => {
         if (data.status) {
-            fetch(base_url + "/Atleta/getAtletaCI/" + cedula.value)
+            if(id_atleta.value == 0 || id_atleta.value == ""){
+                fetch(base_url + "/Atleta/getAtletaCI/" + cedula.value)
             .then(res => res.json())
             .then(data2 => {
                 if(data2){
                     Swal.fire({
                         title: 'Atleta ya registrado',
-                        text: 'La cedula que ingresó ya esta registrada',
+                        text: 'La cedula que ingresó ya esta registrada, Desea actualizar?',
                         icon: 'warning',
                         allowOutsideClick: false,
-                        confirmButtonText: "Continuar"
-                    });
-                    nombreCompleto.value = "";
-                    carrera.value = "";
+                        confirmButtonText: "Si",
+                        cancelButtonText: "No",
+                        showCancelButton: true,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            //id_atleta.value = data2.ID_ATLETA;
+                            //actualizacionAtleta();
+                            window.location.href = base_url + "/Atleta/registroAtleta/" + data2.ID_ATLETA;
+                        }else{
+                            nombreCompleto.value = "";
+                        carrera.value = "";
                     trayecto.value = "";
                     seccion.value = "";
                     tipo.value = "";
                     sexo.value = "";
                     fecha.value = "";
+                        }
+                    })
+                    
                 }else{
                     Swal.fire({
                         position: 'top-end',
@@ -136,6 +164,18 @@ function buscarApi() {
                     fecha.value = persona.fecha_nac;
                 }
             })
+            }
+            else{
+                let persona = data.data;
+                    // Actualizar los campos del formulario con los datos obtenidos
+                    nombreCompleto.value = persona.fullname;
+                    carrera.value = persona.carrera;
+                    trayecto.value = persona.trayecto;
+                    seccion.value = persona.seccion;
+                    tipo.value = persona.tipo;
+                    sexo.value = persona.sexo;
+                    fecha.value = persona.fecha_nac;
+            }
         } else {
             console.error('Error:', error);
         Swal.fire({
